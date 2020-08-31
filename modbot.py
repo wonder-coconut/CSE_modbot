@@ -14,6 +14,14 @@ def getToken():
 async def on_ready():
     print('logged in as '+str(bot.user))
 
+@bot.command(name = "help")
+async def help(ctx):
+    await ctx.channel.send('''
+Command prefix: !
+Commands:
+join-batch1: to get the role of "Batch 1"
+join-batch2: to get the role of "Batch 2"''')
+
 @bot.command(name = "join-batch1")
 async def batch1(ctx):
     server = ctx.guild
