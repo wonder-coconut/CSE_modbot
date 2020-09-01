@@ -79,7 +79,9 @@ async def leave_batch(ctx):
 		await ctx.channel.send("Can't remove you since you haven't joined any batch")
 
 
+@bot.event
+async def on_command_error(self, ctx, error):
+	if isinstance(error, CommandNotFound):
+		await ctx.channel.send("Sorry {} ! Unknown command\nTry `!help` to see what I can do.".format(ctx.message.author.mention))
 
 bot.run(getToken())
-
-#user.remove_role(role)
